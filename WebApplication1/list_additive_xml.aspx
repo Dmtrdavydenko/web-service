@@ -28,13 +28,23 @@ for xml auto
 
         string xml_text = "<txt>Нет данных</txt>";
 
-        if (rdr.Read())
-            xml_text = rdr[0].ToString();
+        xml_text = "<tapes>";
+        //xml_text = ""; 
+        while (rdr.Read())
+            xml_text += rdr[0].ToString();
+
+        xml_text += "</tapes>";
+
 
         cnn.Close();
 
+        //Response.Clear();
+        //Response.ContentType = "text/plain";
+        //Response.ContentEncoding = System.Text.Encoding.UTF8;
+        //Response.Write(xml_text);
+        //Response.End();
         Response.Clear();
-        Response.ContentType = "text/plain";
+        Response.ContentType = "application/xml";
         Response.ContentEncoding = System.Text.Encoding.UTF8;
         Response.Write(xml_text);
         Response.End();
