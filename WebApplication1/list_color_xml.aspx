@@ -28,12 +28,12 @@ for xml auto
 
         string xml_text = "<txt>Нет данных</txt>";
 
-        xml_text = "<tapes>";
+        xml_text = "<colors>";
         //xml_text = ""; 
         while (rdr.Read())
             xml_text += rdr[0].ToString();
 
-        xml_text += "</tapes>";
+        xml_text += "</colors>";
 
 
         cnn.Close();
